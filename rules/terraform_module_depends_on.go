@@ -27,7 +27,7 @@ func (r *TerraformModuleDependsOnRule) Name() string {
 
 // Enabled returns whether the rule is enabled by default
 func (r *TerraformModuleDependsOnRule) Enabled() bool {
-	return false
+	return true
 }
 
 // Severity returns the rule severity
@@ -80,7 +80,7 @@ func (r *TerraformModuleDependsOnRule) Check(rr tflint.Runner) error {
 		if attr, exists := block.Body.Attributes["depends_on"]; exists {
 			return runner.EmitIssue(
 				r,
-				fmt.Sprintf(`depends_on set for module "%s"`, block.Labels[0]),
+				fmt.Sprintf(`depends_on set on module "%s"`, block.Labels[0]),
 				attr.Expr.Range(),
 			)
 		}

@@ -25,7 +25,7 @@ module "invalid" {
 			Expected: helper.Issues{
 				{
 					Rule:    NewTerraformModuleDependsOnRule(),
-					Message: `depends_on set for module "invalid"`,
+					Message: `depends_on set on module "invalid"`,
 					Range: hcl.Range{
 						Filename: "resource.tf",
 						Start:    hcl.Pos{Line: 5, Column: 16},
